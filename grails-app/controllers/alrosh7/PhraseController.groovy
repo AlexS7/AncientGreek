@@ -25,11 +25,33 @@ class PhraseController {
 
     @Transactional
     def save(Phrase phraseInstance) {
-//        def foo = params;
-//        println foo.dump();
-//
-//        def f = request.getFile('citationFilesUploadr')
-//        f.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/foo.jpg"))
+        def foo = params;
+        println foo.dump();
+        def bar = request;
+        println bar.dump();
+        def foobar = request.getMultiFileMap()
+        println foobar.dump()
+        foobar["citationFilesUploader"].each {
+            println it.dump()
+            def barr = it
+            def barw = it.fileItem
+            it.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}"))
+            def citationFile = new CitationFile(pathToFile: "/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}")
+            phraseInstance.addToCitationFiles(citationFile)
+        }
+        foobar["descriptionFilesUploader"].each {
+            println it.dump()
+            it.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}"))
+            def descriptionFile = new DescriptionFile(pathToFile: "/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}")
+            phraseInstance.addToDescriptionFiles(descriptionFile)
+        }
+
+        //def f = request.getFile('citationFilesUploadr')
+        //f.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/foo.jpg"))
+
+//        request.fileNames.each {
+//            File file = request.getFile(it)
+//        }
 
         if (phraseInstance == null) {
             notFound()

@@ -62,10 +62,8 @@
 		
 	</label>
 
-	%{--<uploadr:add name="citationFilesUploadr" path="/tmp/uploadr/citationFilesUploadr" maxSize="52428800" />--}%
+	<input type="file" id="citationFilesUploader" name="citationFilesUploader" class="citationFileUploader"/>
 
-	<input type="file" id="citationFilesUploadr" name="citationFilesUploadr" />
-	
 %{--<ul class="one-to-many">--}%
 %{--<g:each in="${phraseInstance?.citationFiles?}" var="c">--}%
     %{--<li><g:link controller="citationFile" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>--}%
@@ -77,12 +75,16 @@
 
 
 </div>
+<span id="addCitationFile">add a citation file</span>
 
 <div class="fieldcontain ${hasErrors(bean: phraseInstance, field: 'descriptionFiles', 'error')} ">
 	<label for="descriptionFiles">
 		<g:message code="phrase.descriptionFiles.label" default="Description Files" />
 		
 	</label>
+
+	<input type="file" id="descriptionFilesUploader" name="descriptionFilesUploader" class="descriptionFileUploader" />
+	<span id="addDescFile">add a desc file</span>
 	
 <ul class="one-to-many">
 <g:each in="${phraseInstance?.descriptionFiles?}" var="d">
