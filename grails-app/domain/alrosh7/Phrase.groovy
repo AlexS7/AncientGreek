@@ -1,6 +1,6 @@
 package alrosh7
 
-class Word {
+class Phrase {
 
     String value
 
