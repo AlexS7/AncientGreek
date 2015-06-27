@@ -35,8 +35,8 @@ environments {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/ancient_greek_prod?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
-            password = "root"
+            username = System.getenv().get("USERNAME").toString()
+            password = System.getenv().get("PASSWORD").toString()
         }
     }
 }
