@@ -8,7 +8,7 @@ class DescriptionFile {
     static belongsTo = [phrase: Phrase]
 
     static constraints = {
-        name nullable: false
+        name nullable: true
         pathToFile nullable: false
     }
 }
