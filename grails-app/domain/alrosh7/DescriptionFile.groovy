@@ -5,8 +5,10 @@ class DescriptionFile {
     String name
     String pathToFile
 
+    static belongsTo = [phrase: Phrase]
+
     static constraints = {
-        name blank: false
-        pathToFile blank: false
+        name nullable: false
+        pathToFile nullable: false
     }
 }

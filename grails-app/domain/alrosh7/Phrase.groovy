@@ -19,5 +19,10 @@ class Phrase {
 
     static constraints = {
         value blank: false, unique: true, size: 1..50
+        origin nullable: true
+        description nullable: true
+        citation nullable: true
+        frenchTranslation nullable: true
+        germanTranslation nullable: true
     }
 }
