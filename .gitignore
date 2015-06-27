@@ -3,3 +3,4 @@ ancientgreek.iml
 target/
 ancientgreek-grailsPlugins.iml
 web-app/
+ROOT.war
