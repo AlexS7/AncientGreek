@@ -15,10 +15,10 @@
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
 
-		<asset:javascript src="uploadr.manifest.js"/>
-		<asset:javascript src="uploadr.demo.manifest.js"/>
-		<asset:stylesheet href="uploadr.manifest.css"/>
-		<asset:stylesheet href="uploadr.demo.manifest.css"/>
+		%{--<asset:javascript src="uploadr.manifest.js"/>--}%
+		%{--<asset:javascript src="uploadr.demo.manifest.js"/>--}%
+		%{--<asset:stylesheet href="uploadr.manifest.css"/>--}%
+		%{--<asset:stylesheet href="uploadr.demo.manifest.css"/>--}%
 
 		<g:layoutHead/>
 	</head>

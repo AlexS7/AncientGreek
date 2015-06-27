@@ -86,14 +86,14 @@
 	<input type="file" id="descriptionFilesUploader" name="descriptionFilesUploader" class="descriptionFileUploader" />
 	<span id="addDescFile">add a desc file</span>
 	
-<ul class="one-to-many">
-<g:each in="${phraseInstance?.descriptionFiles?}" var="d">
-    <li><g:link controller="descriptionFile" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="descriptionFile" action="create" params="['phrase.id': phraseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'descriptionFile.label', default: 'DescriptionFile')])}</g:link>
-</li>
-</ul>
+%{--<ul class="one-to-many">--}%
+%{--<g:each in="${phraseInstance?.descriptionFiles?}" var="d">--}%
+    %{--<li><g:link controller="descriptionFile" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>--}%
+%{--</g:each>--}%
+%{--<li class="add">--}%
+%{--<g:link controller="descriptionFile" action="create" params="['phrase.id': phraseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'descriptionFile.label', default: 'DescriptionFile')])}</g:link>--}%
+%{--</li>--}%
+%{--</ul>--}%
 
 
 </div>
