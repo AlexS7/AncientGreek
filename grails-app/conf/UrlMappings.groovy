@@ -7,7 +7,11 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        //"/"(view:"/index")
+        "/" {
+            controller = "phrase"
+            action = "create"
+        }
         "500"(view:"/error")
         "404"(view:"404")
 	}
