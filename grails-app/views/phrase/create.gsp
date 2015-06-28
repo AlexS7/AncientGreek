@@ -37,7 +37,7 @@
 			<fieldset class="buttons">
 				<div class="row formButtonCreateRow">
 					<div class="col-md-12">
-						<g:submitButton name="create" class="save" value='Δημιουργία' />
+						<g:submitButton name="create" class="save btn btn-primary" value='Δημιουργία' />
 					</div>
 				</div>
 			</fieldset>

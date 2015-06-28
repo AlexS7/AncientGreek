@@ -1,11 +1,12 @@
 <%@ page import="alrosh7.Phrase" %>
 
+<div class="formWrapper">
 <div class="row valueFieldRow">
 	<div class="col-md-12">
 		<div class="valueField">
-			<div ${hasErrors(bean: phraseInstance, field: 'value', 'error')} required">
+			<div ${hasErrors(bean: phraseInstance, field: 'value', 'error')} >
 				<div class="valueLabel">Καταχωρηση Λεξης/Ορου (1ο πεδιον)</div>
-				<g:textField name="value" maxlength="50" required="" value="${phraseInstance?.value}"/>
+				<g:textField name="value" maxlength="50" value="${phraseInstance?.value}"/>
 			</div>
 		</div>
 	</div>
@@ -48,6 +49,7 @@
 		</div>
 		<div class="addDescFile">Κλικ εδω για εισαγωγη επιπροσθετου αρχειου</div>
 	</div>
+</div>
 </div>
 
 %{--Will be used in the second page--}%
