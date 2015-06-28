@@ -1,9 +1,8 @@
 package alrosh7
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.util.Environment
 
 @Transactional(readOnly = true)
 class PhraseController {
@@ -25,33 +24,6 @@ class PhraseController {
 
     @Transactional
     def save(Phrase phraseInstance) {
-        def foo = params;
-        println foo.dump();
-        def bar = request;
-        println bar.dump();
-        def foobar = request.getMultiFileMap()
-        println foobar.dump()
-        foobar["citationFilesUploader"].each {
-            if(it.fileItem.fileName == "" || it.fileItem.size == 0 ) { return }
-            def barr = it
-            def barw = it.fileItem
-            it.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}"))
-            def citationFile = new CitationFile(pathToFile: "/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}")
-            phraseInstance.addToCitationFiles(citationFile)
-        }
-        foobar["descriptionFilesUploader"].each {
-            if(it.fileItem.fileName == "" || it.fileItem.size == 0 ) { return }
-            it.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}"))
-            def descriptionFile = new DescriptionFile(pathToFile: "/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}")
-            phraseInstance.addToDescriptionFiles(descriptionFile)
-        }
-
-        //def f = request.getFile('citationFilesUploadr')
-        //f.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/foo.jpg"))
-
-//        request.fileNames.each {
-//            File file = request.getFile(it)
-//        }
 
         if (phraseInstance == null) {
             notFound()
@@ -61,6 +33,31 @@ class PhraseController {
         if (phraseInstance.hasErrors()) {
             respond phraseInstance.errors, view:'create'
             return
+        }
+
+        //If the above checks were successful then only go for the uploads
+        def uploads = request.getMultiFileMap()
+
+        def saveDestination
+        if (Environment.current == Environment.DEVELOPMENT){
+            saveDestination = "/home/alex/Projects/Grails/ancientgreek/"
+        }
+        if (Environment.current == Environment.PRODUCTION) {
+            saveDestination = "/ancientgreekdownloads/"
+        }
+
+        uploads["citationFilesUploader"].each {
+            if(it.fileItem.fileName == "" || it.fileItem.size == 0 ) { return }
+            it.transferTo(new File(saveDestination+it.fileItem.fileName))
+            def citationFile = new CitationFile(pathToFile: saveDestination+it.fileItem.fileName)
+            phraseInstance.addToCitationFiles(citationFile)
+        }
+
+        uploads["descriptionFilesUploader"].each {
+            if(it.fileItem.fileName == "" || it.fileItem.size == 0 ) { return }
+            it.transferTo(new File(saveDestination+it.fileItem.fileName))
+            def descriptionFile = new DescriptionFile(pathToFile: saveDestination+it.fileItem.fileName)
+            phraseInstance.addToDescriptionFiles(descriptionFile)
         }
 
         phraseInstance.save flush:true
