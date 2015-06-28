@@ -2,14 +2,14 @@ package alrosh7
 
 class Phrase {
 
-    String value
-    String origin
-    String description
-    String citation
+    String value // 1st field
+    String origin //2nd field
+    String description //3rd field
+    String citation //4th field
     static hasMany = [descriptionFiles: DescriptionFile,
                       citationFiles: CitationFile]
-    String germanTranslation
-    String frenchTranslation
+    String germanTranslation //5th field
+    String frenchTranslation //6th field
 
     static mapping = {
         origin type: "text"
