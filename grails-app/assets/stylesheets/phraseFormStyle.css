@@ -1,0 +1,122 @@
+.valueFieldRow{
+    padding-top: 10px;
+    height:80px;
+}
+
+.valueLabel{
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.valueField{
+    text-align: center;
+}
+
+.citationDescriptionRow{
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.citationDataWrapper{
+    border: 1px solid black;
+}
+
+.citationLabel{
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.citationTextArea{
+    width:100%;
+    height: 200px;
+}
+
+.citationFilesUploadLabel{
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.citationFilesUploaderWrapper{
+    width: 100%;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.addCitationFile{
+    margin-top: 8px;
+}
+
+.descriptionDataWrapper{
+    border: 1px solid black;
+}
+
+.descriptionLabel{
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.descriptionTextArea{
+    width:100%;
+    height: 200px;
+}
+
+.descriptionFilesUploadLabel{
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.descriptionFilesUploadWrapper{
+    width: 100%;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.addDescFile{
+    margin-top: 8px;
+}
+
+.allPhrasesLinkRow{
+    text-align: center;
+}
+
+.createTitleRow{
+    text-align: center;
+}
+
+.citationFilesUpload input{
+    display: inline;
+}
+
+.descriptionFilesUpload input{
+    display: inline;
+}
+
+.originRow{
+    width:100%;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.originDataWrapper{
+    border: 1px solid black;
+}
+
+.originLabel{
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.originTextArea{
+    width: 40%;
+    height: 200px;
+}
+
+.formButtonCreateRow{
+    margin-top: 8px;
+    text-align: center;
+}
