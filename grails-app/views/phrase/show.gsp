@@ -83,6 +83,7 @@
 					
 						<g:each in="${phraseInstance.citationFiles}" var="c">
 						<span class="property-value" aria-labelledby="citationFiles-label"><g:link controller="citationFile" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="citationFiles-label"><g:link controller="citationFile" action="download" id="${c.id}">Download</g:link></span>
 						</g:each>
 					
 				</li>
