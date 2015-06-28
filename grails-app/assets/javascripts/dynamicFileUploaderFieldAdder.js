@@ -4,10 +4,12 @@
 
 $( document ).ready(function() {
     $("#addCitationFile").click(function () {
-        var originalField = $('.citationFileUploader').last().parent();
-        var cloneInput = originalField.clone();
-        //var cloneInputIdNewId = cloneInput.children('input').attr("id")+"_"+index++;
-        //cloneInput.children('input').attr("id", cloneInputIdNewId);
-        originalField.after(cloneInput);
+        var originalField = $('.citationFileUploader').last();
+        var newFileInput = $('<input/>').
+            attr('type', 'file').
+            attr('id', 'citationFileUploader').
+            addClass("citationFileUploader").
+            attr("name","citationFilesUploader");
+        originalField.after(newFileInput);
     });
 });
