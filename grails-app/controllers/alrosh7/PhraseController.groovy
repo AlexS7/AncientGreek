@@ -32,7 +32,7 @@ class PhraseController {
         def foobar = request.getMultiFileMap()
         println foobar.dump()
         foobar["citationFilesUploader"].each {
-            println it.dump()
+            if(it.fileItem.fileName == "" || it.fileItem.size == 0 ) { return }
             def barr = it
             def barw = it.fileItem
             it.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}"))
@@ -40,7 +40,7 @@ class PhraseController {
             phraseInstance.addToCitationFiles(citationFile)
         }
         foobar["descriptionFilesUploader"].each {
-            println it.dump()
+            if(it.fileItem.fileName == "" || it.fileItem.size == 0 ) { return }
             it.transferTo(new File("/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}"))
             def descriptionFile = new DescriptionFile(pathToFile: "/home/alex/Projects/Grails/ancientgreek/${it.fileItem.fileName}")
             phraseInstance.addToDescriptionFiles(descriptionFile)
